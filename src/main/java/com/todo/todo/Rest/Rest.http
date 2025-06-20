@@ -1,0 +1,22 @@
+### Listar tarefas
+GET http://localhost:8080/task/list
+
+### Criar tarefa
+POST http://localhost:8080/task/create
+Content-Type: application/json
+
+{
+  "title": "Levar cachorro na cozinha",
+  "description": "fazer um hotdog"
+
+}
+###
+DELETE http://localhost:8080/task/delete/5
+###
+PUT http://localhost:8080/task/update/8
+Content-Type: application/json
+
+{
+  "title": "Levar cachorro no PETSHOP (atualizado)",
+  "description": "Dar banho e tosa"
+}
