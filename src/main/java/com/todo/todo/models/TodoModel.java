@@ -18,24 +18,20 @@ public class TodoModel {
     private String title;
     @Size(max = 255)
     private String description;
-    private boolean done;
+    private boolean completed = false;
     @CreationTimestamp
     @Column(name = "creation_date", updatable = false)
 
     private LocalDateTime creationDate;
     public TodoModel(){}
-    public TodoModel(String title, String description) {
+    public TodoModel(String title, String description, boolean completed) {
         this.title = title;
         this.description = description;
-        this.done = false;
+        this.completed = completed;
     }
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getTitle() {
@@ -54,11 +50,15 @@ public class TodoModel {
         this.description = description;
     }
 
-    public boolean isDone() {
-        return done;
+    public boolean getCompleted() {
+        return completed;
     }
 
-    public void setDone(boolean done) {
-        this.done = done;
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
+    }
+
+    public LocalDateTime getCreationDate() {
+        return creationDate;
     }
 }

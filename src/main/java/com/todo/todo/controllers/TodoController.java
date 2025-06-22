@@ -9,10 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/task")
+@RequestMapping("/todo")
 public class TodoController {
-    private TodoService todoService;
-
+    private final TodoService todoService;
     public TodoController(TodoService todoService) {
         this.todoService = todoService;
     }
@@ -20,7 +19,7 @@ public class TodoController {
     List<TodoModel> create(@RequestBody TodoModel todoModel) {
         return todoService.create(todoModel);
     }
-    @GetMapping("list")
+    @GetMapping("tasks")
     List<TodoModel> listTasks(){
         return todoService.list();
     }
@@ -31,8 +30,8 @@ public class TodoController {
     }
     @PutMapping("update/{id}")
         List<TodoModel> updateTasks(
-                @PathVariable Long id,
-                @RequestBody TodoModel todoModel
+            @PathVariable Long id,
+            @RequestBody TodoModel todoModel
     ){
         todoService.update(id, todoModel);
         return todoService.list();
