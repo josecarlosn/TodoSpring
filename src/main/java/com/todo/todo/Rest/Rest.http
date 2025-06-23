@@ -1,0 +1,24 @@
+### Listar tarefas
+GET http://localhost:8080/todo/tasks
+
+### Criar tarefa
+POST http://localhost:8080/todo/create
+Content-Type: application/json
+
+{
+  "title": "Levar cachorro na cozinha",
+  "description": "fazer um hotdog"
+
+}
+###
+DELETE http://localhost:8080/todo/delete/10
+###
+PUT http://localhost:8080/todo/update/11
+Content-Type: application/json
+
+{
+  "title": "Tarefa nova",
+  "description": "descrição da tarefa nova",
+  "completed": true
+}
+
