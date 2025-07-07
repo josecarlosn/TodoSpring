@@ -15,19 +15,26 @@ public class TodoController {
     public TodoController(TodoService todoService) {
         this.todoService = todoService;
     }
+
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping("create")
     List<TodoModel> create(@RequestBody TodoModel todoModel) {
         return todoService.create(todoModel);
     }
+
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("tasks")
     List<TodoModel> listTasks(){
         return todoService.list();
     }
+
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @DeleteMapping("delete/{id}")
     List<TodoModel> deleteTasks(@PathVariable Long id){
         todoService.delete(id);
         return todoService.list();
     }
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PutMapping("update/{id}")
         List<TodoModel> updateTasks(
             @PathVariable Long id,
@@ -37,4 +44,5 @@ public class TodoController {
         return todoService.list();
     };
 
-};
+    
+}

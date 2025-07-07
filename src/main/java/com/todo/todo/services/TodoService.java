@@ -23,7 +23,7 @@ public class TodoService {
         return list();
     };
     public List<TodoModel> list(){;
-        Sort sort = Sort.by(Sort.Direction.ASC, "completed")
+        Sort sort = Sort.by(Sort.Direction.DESC, "completed")
                 .and(Sort.by(Sort.Direction.DESC, "creationDate"));
         return todoRepository.findAll(sort);
     };
@@ -44,5 +44,6 @@ public class TodoService {
 
         return list();
     }
+
 
 }
